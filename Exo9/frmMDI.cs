@@ -23,6 +23,7 @@ namespace Exo9
             MSections.listSections.Add(section.Identifiant, section);
             section = new MSection("CDI14", "Concepteur Développeur", DateTime.Now, DateTime.Now.AddYears(1));
             MSections.listSections.Add(section.Identifiant, section);
+            Console.WriteLine(MSections.listSections.Count);
 
         }
 

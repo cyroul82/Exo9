@@ -58,7 +58,7 @@ namespace Exo9
             // appel de la méthode de la classe MSection 
             // qui alimente et retourne une datatable
             // à partir de sa collection de stagiaires
-            //this.grdStagiaires.DataSource = ; 
+          
             // refraîchir l'affichage
             this.grdStagiaires.Refresh();
             // gestion bouton supprimer

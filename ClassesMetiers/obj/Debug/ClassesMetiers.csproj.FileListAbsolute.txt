@@ -1,5 +1,0 @@
-C:\Users\DL-CDI\Dropbox\AFPA\07-Concevoir une application en couche\08-Developpement en couche\Exo9Base\ClassesMetiers\bin\Debug\ClassesMetiers.dll
-C:\Users\DL-CDI\Dropbox\AFPA\07-Concevoir une application en couche\08-Developpement en couche\Exo9Base\ClassesMetiers\bin\Debug\ClassesMetiers.pdb
-C:\Users\DL-CDI\Dropbox\AFPA\07-Concevoir une application en couche\08-Developpement en couche\Exo9Base\ClassesMetiers\obj\Debug\ClassesMetiers.csprojResolveAssemblyReference.cache
-C:\Users\DL-CDI\Dropbox\AFPA\07-Concevoir une application en couche\08-Developpement en couche\Exo9Base\ClassesMetiers\obj\Debug\ClassesMetiers.dll
-C:\Users\DL-CDI\Dropbox\AFPA\07-Concevoir une application en couche\08-Developpement en couche\Exo9Base\ClassesMetiers\obj\Debug\ClassesMetiers.pdb

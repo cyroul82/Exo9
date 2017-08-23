@@ -11,7 +11,7 @@ namespace Exo9
     /// </summary>
     public class MSections
     {
-        private static SortedDictionary<String, MSection> listSections = new SortedDictionary<String, MSection>();
+        public static SortedDictionary<String, MSection> listSections = new SortedDictionary<String, MSection>();
 
         public MSections()
         {
@@ -52,7 +52,7 @@ namespace Exo9
             }
         }
 
-        public MSection RestituerStagiaire(String identifiant)
+        public MSection RestituerSection(String identifiant)
         {
             if (MSections.listSections.ContainsKey(identifiant))
             {

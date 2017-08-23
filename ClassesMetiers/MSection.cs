@@ -16,7 +16,7 @@ namespace Exo9
         private String libelle;
         private DateTime dateDebut;
         private DateTime dateFin;
-        private static SortedDictionary<Int32, MStagiaire> listStagiaires = new SortedDictionary<Int32, MStagiaire>();
+        private SortedDictionary<Int32, MStagiaire> listStagiaires;
         private DataTable dt;
 
         public MSection(String identifiant, String libelle, DateTime dateDebut, DateTime dateFin)
@@ -25,7 +25,7 @@ namespace Exo9
             Libelle = libelle;
             DateDebut = dateDebut;
             DateFin = dateFin;
-            //listStagiaires = new SortedDictionary<Int32, MStagiaire>();
+            listStagiaires = new SortedDictionary<Int32, MStagiaire>();
         }
 
         public DataTable ListerStagiaires()
@@ -35,7 +35,7 @@ namespace Exo9
             dt.Columns.Add("Nom", typeof(String));
             dt.Columns.Add("Prénom", typeof(String));
 
-            foreach(KeyValuePair<Int32, MStagiaire> s in MSection.listStagiaires)
+            foreach(KeyValuePair<Int32, MStagiaire> s in listStagiaires)
             {
                 DataRow row = dt.NewRow();
                 row["NumOsia"] = s.Key;
@@ -50,12 +50,12 @@ namespace Exo9
 
         public void Ajouter(MStagiaire stagiaire)
         {
-            MSection.listStagiaires.Add(stagiaire.NumOsia, stagiaire);
+            listStagiaires.Add(stagiaire.NumOsia, stagiaire);
         }
 
         public void Supprimer(MStagiaire stagiaire)
         {
-            if (!MSection.listStagiaires.Remove(stagiaire.NumOsia))
+            if (!listStagiaires.Remove(stagiaire.NumOsia))
             {
                 throw new Exception("Can't delete this stagiaire, does not exist !");
             }
@@ -65,7 +65,7 @@ namespace Exo9
         public void Supprimer(Int32 numOsia)
         {
 
-            if (!MSection.listStagiaires.Remove(numOsia))
+            if (!listStagiaires.Remove(numOsia))
             {
                 throw new Exception("Can't delete this numOsia, does not exist !");
             }
@@ -73,9 +73,9 @@ namespace Exo9
 
         public void Remplacer(MStagiaire stagiaire)
         {
-            if (MSection.listStagiaires.ContainsKey(stagiaire.NumOsia))
+            if (listStagiaires.ContainsKey(stagiaire.NumOsia))
             {
-                MSection.listStagiaires[stagiaire.NumOsia] = stagiaire;
+                listStagiaires[stagiaire.NumOsia] = stagiaire;
             }
             else
             {
@@ -85,9 +85,9 @@ namespace Exo9
 
         public MStagiaire RestituerStagiaire(Int32 numOsia)
         {
-            if (MSection.listStagiaires.ContainsKey(numOsia))
+            if (listStagiaires.ContainsKey(numOsia))
             {
-                return MSection.listStagiaires[numOsia];
+                return listStagiaires[numOsia];
             }
             else
             {

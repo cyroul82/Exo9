@@ -23,13 +23,13 @@ namespace Exo9
         /// Constructeur 
         /// (initialise la collection de sections et insère en dur la section DI)
         /// </summary>
-        public frmExo9()
+        public frmExo9(MSection laSection)
         {
             InitializeComponent();
             // initialisation de la collection de sections
             //Donnees.Sections = new MSections();
-
-            laSection = new MSection("CDI1", "Concepteur Développeur", DateTime.Now, DateTime.Now.AddYears(1));
+            this.laSection = laSection;
+            Console.WriteLine(laSection.Identifiant);
 
             // pour commencer, une seule section référencée "en dur" dans ce programme
             // instancie la section
@@ -52,6 +52,7 @@ namespace Exo9
         /// </summary>
         private void afficheStagiaires()
         {
+            this.grdStagiaires.DataSource = null;
             this.grdStagiaires.DataSource = laSection.ListerStagiaires();
             // déterminer l'origine des données à afficher : 
             // appel de la méthode de la classe MSection 
@@ -75,7 +76,7 @@ namespace Exo9
         {
             // instancier un form de saisie de stagiaire et l'afficher en modal
             // il faut préciser la référence à la section que l'on traite
-            frmAjoutStagiaire frmAjout = new frmAjoutStagiaire(this.laSection);
+            frmAjoutStagiaire frmAjout = new frmAjoutStagiaire(laSection);
             // si on sort de la saisie par OK
             if (frmAjout.ShowDialog() == DialogResult.OK)
             {
@@ -135,6 +136,7 @@ namespace Exo9
         private void btnFermer_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
 
         /// <summary>

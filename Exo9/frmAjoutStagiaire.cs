@@ -26,6 +26,7 @@ namespace Exo9
         {
             InitializeComponent();
             this.laSection = uneSection;
+            Console.WriteLine(laSection.Identifiant);
         }
 
         /// <summary>
@@ -114,6 +115,7 @@ namespace Exo9
 
                 // dans tous les cas, ajouter la référence d'objet MStagiaire dans la collection de sa section
                 laSection.Ajouter(nouveauStagiaire);
+                Console.WriteLine(laSection.Identifiant + " ajout nouveau stagiaire ");
 
                     return true;
 

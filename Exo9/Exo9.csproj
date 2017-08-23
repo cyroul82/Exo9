@@ -71,6 +71,12 @@
     <Compile Include="frmSaisieNote.Designer.cs">
       <DependentUpon>frmSaisieNote.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSection.Designer.cs">
+      <DependentUpon>frmSection.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStagiaire.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     <EmbeddedResource Include="frmSaisieNote.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmSaisieNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSection.resx">
+      <DependentUpon>frmSection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStagiaire.resx">
       <DependentUpon>frmStagiaire.cs</DependentUpon>

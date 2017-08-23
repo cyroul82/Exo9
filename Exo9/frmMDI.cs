@@ -8,15 +8,22 @@ using System.Windows.Forms;
 
 namespace Exo9
 {
+    public delegate void SelectSectionHandler(MSection section);
     public partial class frmMDI : Form
     {
         //private int childFormNumber = 0;
+        private frmExo9 frmPrinc;
 
         public frmMDI()
         {
             InitializeComponent();
-            // mémo globale du form MDI 
-            //Donnees.FrmMDI = this;
+
+            //Mock-data
+            MSection section = new MSection("CDI1", "Développeur", DateTime.Now, DateTime.Now.AddYears(1));
+            MSections.listSections.Add(section.Identifiant, section);
+            section = new MSection("CDI14", "Concepteur Développeur", DateTime.Now, DateTime.Now.AddYears(1));
+            MSections.listSections.Add(section.Identifiant, section);
+
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -41,9 +48,7 @@ namespace Exo9
             //}
 
             // afficher le form principal
-            frmExo9 frmPrinc = new frmExo9();
-            frmPrinc.MdiParent = this;
-            frmPrinc.Show();
+            openFrmExo9(null);
 
         }
 
@@ -120,10 +125,47 @@ namespace Exo9
         private void openCDIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // afficher le form principal
-            frmExo9 frmPrinc = new frmExo9();
-            frmPrinc.MdiParent = this;
-            frmPrinc.Show();
 
+            openFrmExo9(null);
+
+        }
+
+        private void helpToolStripButton_Click(object sender, EventArgs e)
+        {
+
+            frmSection s = new frmSection();
+            s.selectSection += new SelectSectionHandler(this.selectionSelected);
+            s.ShowDialog();
+        }
+
+        private void selectionSelected(MSection section)
+        {
+            openFrmExo9(section);
+        }
+
+        private void openFrmExo9(MSection section)
+        {
+            if (section == null) section = MSections.listSections["CDI1"];
+            if (frmPrinc == null)
+            {
+                frmPrinc = new frmExo9(section);
+                frmPrinc.MdiParent = this;
+                frmPrinc.FormClosing += new FormClosingEventHandler(this.frmPrincClosing);
+                frmPrinc.Show();
+            }
+            if (frmPrinc.WindowState == FormWindowState.Minimized)
+            {
+                frmPrinc.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                frmPrinc.Activate();
+            }
+        }
+
+        private void frmPrincClosing(object sender, FormClosingEventArgs e)
+        {
+            frmPrinc = null;
         }
     }
 }

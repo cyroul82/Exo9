@@ -12,12 +12,13 @@ namespace Exo9
     public partial class frmMDI : Form
     {
         //private int childFormNumber = 0;
-        private frmExo9 frmPrinc;
+        private Dictionary<string, frmExo9> listFrmExo9;
+        private frmExo9 frmPrinc = null;
 
         public frmMDI()
         {
             InitializeComponent();
-
+            listFrmExo9 = new Dictionary<string, frmExo9>();
             //Mock-data
             MSection section = new MSection("CDI1", "Développeur", DateTime.Now, DateTime.Now.AddYears(1));
             MSections.listSections.Add(section.Identifiant, section);
@@ -125,10 +126,7 @@ namespace Exo9
 
         private void openCDIToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // afficher le form principal
-
             openFrmExo9(null);
-
         }
 
         private void helpToolStripButton_Click(object sender, EventArgs e)
@@ -147,11 +145,19 @@ namespace Exo9
         private void openFrmExo9(MSection section)
         {
             if (section == null) section = MSections.listSections["CDI1"];
+
+            if (listFrmExo9.ContainsKey(section.Identifiant))
+            {
+                frmPrinc = listFrmExo9[section.Identifiant];
+            }
+            else frmPrinc = null;
+
             if (frmPrinc == null)
             {
                 frmPrinc = new frmExo9(section);
                 frmPrinc.MdiParent = this;
                 frmPrinc.FormClosing += new FormClosingEventHandler(this.frmPrincClosing);
+                listFrmExo9.Add(section.Identifiant, frmPrinc);
                 frmPrinc.Show();
             }
             if (frmPrinc.WindowState == FormWindowState.Minimized)
@@ -166,7 +172,8 @@ namespace Exo9
 
         private void frmPrincClosing(object sender, FormClosingEventArgs e)
         {
-            frmPrinc = null;
+            frmPrinc = (frmExo9)sender;
+            listFrmExo9.Remove(frmPrinc.getSection().Identifiant);
         }
     }
 }

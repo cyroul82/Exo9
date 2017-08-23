@@ -34,6 +34,11 @@ namespace Exo9
             this.afficheStagiaires();
         }
 
+        public MSection getSection()
+        {
+            return laSection;
+        }
+
         /// <summary>
         /// rétablit la source de données de la dataGridView
         /// et rafraîchit son affichage
@@ -50,7 +55,6 @@ namespace Exo9
             // refraîchir l'affichage
             this.grdStagiaires.Refresh();
             // gestion bouton supprimer
-            // admirer la syntaxe...
             this.btnSupprimer.Enabled = (this.grdStagiaires.CurrentRow == null ? false: true);
         }
 
@@ -89,7 +93,6 @@ namespace Exo9
             // clé (=numOSIA) du stagiaire dans la collection
 
             // récupérer clé du stagiaire cliqué en DataGridView
-            Console.WriteLine(this.grdStagiaires.CurrentRow.Cells[0].Value);
 
             if (Int32.TryParse(this.grdStagiaires.CurrentRow.Cells[0].Value.ToString(), out laCle))
             {

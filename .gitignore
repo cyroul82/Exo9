@@ -40,3 +40,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/Exo9/bin/Debug
+/Exo9/obj

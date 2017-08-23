@@ -110,6 +110,13 @@ namespace Exo9
             this.txtCodePostal.Text = unStagiaire.CodePostal;
             this.lblValeurMoyenne.Text = unStagiaire.DonnerMoyenne().ToString();
             // personnaliser le form en fonction du type de stagiaire
+            if(unStagiaire is MStagiaireDE){
+                this.rbtDE.Checked = true;
+            }
+            if (unStagiaire is MStagiaireCIF)
+            {
+                this.rbtCIF.Checked = true;
+            }
 
 
             // placer le curseur sur le nom

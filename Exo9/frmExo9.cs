@@ -27,21 +27,9 @@ namespace Exo9
         {
             InitializeComponent();
             // initialisation de la collection de sections
-            //Donnees.Sections = new MSections();
+            this.Text = "Visulisation des Stagiaires de la section " + laSection.Identifiant;
             this.laSection = laSection;
-            Console.WriteLine(laSection.Identifiant);
 
-            // pour commencer, une seule section référencée "en dur" dans ce programme
-            // instancie la section
-            //this.laSection = new MSection("CDI1", "Concepteur Développeur Informatique 2012");
-            // l'ajoute dans la collection des sections gérée par la classe de collection
-            
-            // ajoute en dur un stagiaire à cette section
-           // MStagiaire unStagiaire;
-            //unStagiaire = new MStagiaireDE(11111, "DUPOND", "Albert", "12 rue des Fleurs", "NICE", "06300", false);
-            // l'ajoute dans la collection des stagiaires de cette section
-           // unStagiaire = new MStagiaireDE(11111, "RAT", "Cyril", "109 Rue de la Soleillette", "Saint-Raphaël", "83700", false);
-            //laSection.Ajouter(unStagiaire);
             // afficher la liste des stagiaires de la section
             this.afficheStagiaires();
         }

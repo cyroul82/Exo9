@@ -16,7 +16,7 @@ namespace Exo9
         private String libelle;
         private DateTime dateDebut;
         private DateTime dateFin;
-        private SortedDictionary<Int32, MStagiaire> listStagiaires;
+        public SortedDictionary<Int32, MStagiaire> listStagiaires;
         private DataTable dt;
 
         public MSection(String identifiant, String libelle, DateTime dateDebut, DateTime dateFin)

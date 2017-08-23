@@ -93,7 +93,6 @@
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.grdStagiaires);
             this.Name = "frmExo9";
-            this.Text = "Visulisation des Stagiaires de la section CDI";
             ((System.ComponentModel.ISupportInitialize)(this.grdStagiaires)).EndInit();
             this.ResumeLayout(false);
 

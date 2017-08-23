@@ -16,7 +16,7 @@ namespace Exo9
         {
             InitializeComponent();
             // mémo globale du form MDI 
-            Donnees.FrmMDI = this;
+            //Donnees.FrmMDI = this;
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace Exo9
 
             // afficher le form principal
             frmExo9 frmPrinc = new frmExo9();
-            frmPrinc.MdiParent = Donnees.FrmMDI;
+            frmPrinc.MdiParent = this;
             frmPrinc.Show();
 
         }
@@ -121,7 +121,7 @@ namespace Exo9
         {
             // afficher le form principal
             frmExo9 frmPrinc = new frmExo9();
-            frmPrinc.MdiParent = Donnees.FrmMDI;
+            frmPrinc.MdiParent = this;
             frmPrinc.Show();
 
         }

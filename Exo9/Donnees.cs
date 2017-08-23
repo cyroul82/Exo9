@@ -12,15 +12,7 @@ namespace Exo9
     public class Donnees
     {
 
-        /// <summary>
-        /// ref au from MDI de l'applicatiuon
-        /// </summary>
-        public static System.Windows.Forms.Form FrmMDI;
 
-        /// <summary>
-        /// collection d'objets MSection
-        /// </summary>
-        public static MSections Sections ;
 
     }
 }

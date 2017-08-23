@@ -11,21 +11,20 @@ namespace Exo9
     /// </summary>
     public class MSections
     {
-        private SortedDictionary<String, MSection> listSections;
+        private static SortedDictionary<String, MSection> listSections = new SortedDictionary<String, MSection>();
 
         public MSections()
         {
-            listSections = new SortedDictionary<String, MSection>();
         }
 
         public void Ajouter(MSection section)
         {
-            listSections.Add(section.Identifiant, section);
+            MSections.listSections.Add(section.Identifiant, section);
         }
 
         public void Supprimer(MSection section)
         {
-            if (!listSections.Remove(section.Identifiant))
+            if (!MSections.listSections.Remove(section.Identifiant))
             {
                 throw new Exception("Can't delete this section, does not exist !");
             }
@@ -35,7 +34,7 @@ namespace Exo9
         public void Supprimer(String identifiant)
         {
 
-            if (!listSections.Remove(identifiant))
+            if (!MSections.listSections.Remove(identifiant))
             {
                 throw new Exception("Can't delete this identifiant, does not exist !");
             }
@@ -43,9 +42,9 @@ namespace Exo9
 
         public void Remplacer(MSection section)
         {
-            if (listSections.ContainsKey(section.Identifiant))
+            if (MSections.listSections.ContainsKey(section.Identifiant))
             {
-                listSections[section.Identifiant] = section;
+                MSections.listSections[section.Identifiant] = section;
             }
             else
             {
@@ -55,9 +54,9 @@ namespace Exo9
 
         public MSection RestituerStagiaire(String identifiant)
         {
-            if (listSections.ContainsKey(identifiant))
+            if (MSections.listSections.ContainsKey(identifiant))
             {
-                return listSections[identifiant];
+                return MSections.listSections[identifiant];
             }
             else
             {
@@ -71,7 +70,7 @@ namespace Exo9
             dt.Columns.Add("Identifiant", typeof(String));
             dt.Columns.Add("Libelle", typeof(String));
 
-            foreach (KeyValuePair<String, MSection> s in listSections)
+            foreach (KeyValuePair<String, MSection> s in MSections.listSections)
             {
                 DataRow row = dt.NewRow();
                 row["Identifiant"] = s.Key;

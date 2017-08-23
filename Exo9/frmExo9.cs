@@ -27,7 +27,7 @@ namespace Exo9
         {
             InitializeComponent();
             // initialisation de la collection de sections
-            Donnees.Sections = new MSections();
+            //Donnees.Sections = new MSections();
 
             laSection = new MSection("CDI1", "Concepteur Développeur", DateTime.Now, DateTime.Now.AddYears(1));
 
@@ -37,11 +37,11 @@ namespace Exo9
             // l'ajoute dans la collection des sections gérée par la classe de collection
             
             // ajoute en dur un stagiaire à cette section
-            MStagiaire unStagiaire;
+           // MStagiaire unStagiaire;
             //unStagiaire = new MStagiaireDE(11111, "DUPOND", "Albert", "12 rue des Fleurs", "NICE", "06300", false);
             // l'ajoute dans la collection des stagiaires de cette section
-            unStagiaire = new MStagiaireDE(11111, "RAT", "Cyril", "109 Rue de la Soleillette", "Saint-Raphaël", "83700", false);
-            laSection.Ajouter(unStagiaire);
+           // unStagiaire = new MStagiaireDE(11111, "RAT", "Cyril", "109 Rue de la Soleillette", "Saint-Raphaël", "83700", false);
+            //laSection.Ajouter(unStagiaire);
             // afficher la liste des stagiaires de la section
             this.afficheStagiaires();
         }
@@ -120,7 +120,7 @@ namespace Exo9
 
             else
             {
-                throw new InvalidCastException("can't convert cell[0]");
+                throw new InvalidCastException("can't convert cell[0] laCle");
             }
             
             
@@ -149,15 +149,21 @@ namespace Exo9
             {
                 // récupérer la clé du stagiaire pointé
                 Int32 cleStagiaire;
-                cleStagiaire = (Int32)this.grdStagiaires.CurrentRow.Cells[0].Value;
-                // demander confirmation de la suppression
-                // NB: messagebox retourne une valeur exploitable !
-                if (MessageBox.Show("Voulez-vous supprimer le stagiaire numéro :" + cleStagiaire.ToString(), "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (Int32.TryParse(this.grdStagiaires.CurrentRow.Cells[0].Value.ToString(), out cleStagiaire))
                 {
-                    // supprimer et compacter la collection
-                    laSection.Supprimer(cleStagiaire);
-                    // réafficher la datagridview
-                    this.afficheStagiaires();
+                    // demander confirmation de la suppression
+                    // NB: messagebox retourne une valeur exploitable !
+                    if (MessageBox.Show("Voulez-vous supprimer le stagiaire numéro :" + cleStagiaire.ToString(), "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        // supprimer et compacter la collection
+                        laSection.Supprimer(cleStagiaire);
+                        // réafficher la datagridview
+                        this.afficheStagiaires();
+                    }
+                }
+                else
+                {
+                    throw new InvalidCastException("can't convert cell[0], cleStagiaire");
                 }
             }
 

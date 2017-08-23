@@ -46,11 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MSection.cs" />
-    <Compile Include="MSections.cs" />
-    <Compile Include="Mstagiaire.cs" />
-    <Compile Include="MStagiaireCIF.cs" />
-    <Compile Include="MStagiaireDE.cs" />
     <Compile Include="Donnees.cs" />
     <Compile Include="frmAjoutStagiaire.cs">
       <SubType>Form</SubType>
@@ -136,6 +131,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassesMetiers\ClassesMetiers.csproj">
+      <Project>{94cede33-84f3-47a6-9c85-2a14a1916714}</Project>
+      <Name>ClassesMetiers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

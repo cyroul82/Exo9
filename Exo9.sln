@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exo9", "Exo9\Exo9.csproj", "{7237811C-435D-42FF-874D-A618DFDF20F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesMetiers", "ClassesMetiers\ClassesMetiers.csproj", "{94CEDE33-84F3-47A6-9C85-2A14A1916714}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,10 @@ Global
 		{7237811C-435D-42FF-874D-A618DFDF20F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7237811C-435D-42FF-874D-A618DFDF20F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7237811C-435D-42FF-874D-A618DFDF20F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94CEDE33-84F3-47A6-9C85-2A14A1916714}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94CEDE33-84F3-47A6-9C85-2A14A1916714}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94CEDE33-84F3-47A6-9C85-2A14A1916714}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94CEDE33-84F3-47A6-9C85-2A14A1916714}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

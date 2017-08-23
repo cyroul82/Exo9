@@ -86,37 +86,7 @@ namespace Exo9
         /// <param name="e"></param>
         private void grdStagiaires_DoubleClick(object sender, EventArgs e)
         {
-            // ouvrir la feuille détail en y affichant 
-            // le stagiaire correspondant à la ligne double-cliquée
-            MStagiaire leStagiaire;
-            Int32 laCle;
-            // clé (=numOSIA) du stagiaire dans la collection
-
-            // récupérer clé du stagiaire cliqué en DataGridView
-
-            if (Int32.TryParse(this.grdStagiaires.CurrentRow.Cells[0].Value.ToString(), out laCle))
-            {
-                // instancier un objet stagiaire pointant vers 
-                // le stagiaire d'origine dans la collection
-                leStagiaire = laSection.RestituerStagiaire(laCle);
-                // instancier un form détail pour ce stagiaire
-                frmVisuStagiaire frmVisu = new frmVisuStagiaire(leStagiaire);
-                // personnaliser le titre du form
-                frmVisu.Text = leStagiaire.ToString();
-                // afficher le form détail en modal
-                frmVisu.ShowDialog();
-
-                // en sortie du form détail, refraichir la datagridview
-                this.afficheStagiaires();
-            }
-
-            else
-            {
-                throw new InvalidCastException("can't convert cell[0] laCle");
-            }
-            
-            
-
+            modifyStagiaire();
         }
 
         /// <summary>
@@ -161,8 +131,36 @@ namespace Exo9
             }
 
         }
+        private void modifyStagiaire()
+        {
+            MStagiaire leStagiaire;
+            Int32 laCle;
+            if (Int32.TryParse(this.grdStagiaires.CurrentRow.Cells[0].Value.ToString(), out laCle))
+            {
+                // instancier un objet stagiaire pointant vers 
+                // le stagiaire d'origine dans la collection
+                leStagiaire = laSection.RestituerStagiaire(laCle);
+                // instancier un form détail pour ce stagiaire
+                frmVisuStagiaire frmVisu = new frmVisuStagiaire(leStagiaire);
+                // personnaliser le titre du form
+                frmVisu.Text = leStagiaire.ToString();
+                // afficher le form détail en modal
+                frmVisu.ShowDialog();
 
-  
+                // en sortie du form détail, refraichir la datagridview
+                this.afficheStagiaires();
+            }
+
+            else
+            {
+                throw new InvalidCastException("can't convert cell[0] laCle");
+            }
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            modifyStagiaire();
+        }
     }
     
 }

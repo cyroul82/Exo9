@@ -32,6 +32,7 @@
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdStagiaires)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,13 +74,23 @@
             // btnSupprimer
             // 
             this.btnSupprimer.Enabled = false;
-            this.btnSupprimer.Location = new System.Drawing.Point(500, 289);
+            this.btnSupprimer.Location = new System.Drawing.Point(12, 289);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimer.TabIndex = 3;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            // 
+            // btnModify
+            // 
+            this.btnModify.Location = new System.Drawing.Point(500, 289);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(75, 23);
+            this.btnModify.TabIndex = 4;
+            this.btnModify.Text = "&Modifier";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // frmExo9
             // 
@@ -88,6 +99,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnFermer;
             this.ClientSize = new System.Drawing.Size(749, 324);
+            this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnAjouter);
@@ -104,6 +116,7 @@
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnFermer;
         private System.Windows.Forms.Button btnSupprimer;
+        private System.Windows.Forms.Button btnModify;
     }
 }
 

@@ -31,6 +31,7 @@ namespace Exo9
             this.btnOK = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkRemuAfpa = new System.Windows.Forms.CheckBox();
             this.grpTypeCIF = new System.Windows.Forms.GroupBox();
             this.txtFongecif = new System.Windows.Forms.TextBox();
             this.lblFongecif = new System.Windows.Forms.Label();
@@ -39,7 +40,6 @@ namespace Exo9
             this.rbtCDI = new System.Windows.Forms.RadioButton();
             this.rbtDE = new System.Windows.Forms.RadioButton();
             this.rbtCIF = new System.Windows.Forms.RadioButton();
-            this.chkRemuAfpa = new System.Windows.Forms.CheckBox();
             this.grpStagiaire.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grpTypeCIF.SuspendLayout();
@@ -90,6 +90,16 @@ namespace Exo9
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Statut";
+            // 
+            // chkRemuAfpa
+            // 
+            this.chkRemuAfpa.AutoSize = true;
+            this.chkRemuAfpa.Location = new System.Drawing.Point(45, 52);
+            this.chkRemuAfpa.Name = "chkRemuAfpa";
+            this.chkRemuAfpa.Size = new System.Drawing.Size(101, 17);
+            this.chkRemuAfpa.TabIndex = 6;
+            this.chkRemuAfpa.Text = "Rému par l\'Afpa";
+            this.chkRemuAfpa.UseVisualStyleBackColor = true;
             // 
             // grpTypeCIF
             // 
@@ -177,16 +187,6 @@ namespace Exo9
             this.rbtCIF.UseVisualStyleBackColor = true;
             this.rbtCIF.CheckedChanged += new System.EventHandler(this.rbtCIF_CheckedChanged);
             // 
-            // chkRemuAfpa
-            // 
-            this.chkRemuAfpa.AutoSize = true;
-            this.chkRemuAfpa.Location = new System.Drawing.Point(45, 52);
-            this.chkRemuAfpa.Name = "chkRemuAfpa";
-            this.chkRemuAfpa.Size = new System.Drawing.Size(101, 17);
-            this.chkRemuAfpa.TabIndex = 6;
-            this.chkRemuAfpa.Text = "Rému par l\'Afpa";
-            this.chkRemuAfpa.UseVisualStyleBackColor = true;
-            // 
             // frmAjoutStagiaire
             // 
             this.AcceptButton = this.btnOK;
@@ -196,6 +196,7 @@ namespace Exo9
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnOK);
             this.Name = "frmAjoutStagiaire";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter un Stagiaire";
             this.Controls.SetChildIndex(this.grpStagiaire, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);

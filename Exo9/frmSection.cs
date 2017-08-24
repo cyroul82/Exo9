@@ -13,6 +13,7 @@ namespace Exo9
     public partial class frmSection : Form
     {
         public SelectSectionHandler selectSection;
+        MSections sections = MSections.Instance();
         public frmSection()
         {
             InitializeComponent();

@@ -14,6 +14,7 @@ namespace Exo9
         //private int childFormNumber = 0;
         private Dictionary<string, frmExo9> listFrmExo9;
         private frmExo9 frmPrinc = null;
+        MSections sections = MSections.Instance();
 
         public frmMDI()
         {
@@ -21,10 +22,9 @@ namespace Exo9
             listFrmExo9 = new Dictionary<string, frmExo9>();
             //Mock-data
             MSection section = new MSection("CDI1", "Développeur", DateTime.Now, DateTime.Now.AddYears(1));
-            MSections.listSections.Add(section.Identifiant, section);
+            sections.Ajouter(section);
             section = new MSection("CDI14", "Concepteur Développeur", DateTime.Now, DateTime.Now.AddYears(1));
-            MSections.listSections.Add(section.Identifiant, section);
-            Console.WriteLine(MSections.listSections.Count);
+            sections.Ajouter(section);
 
         }
 
@@ -144,7 +144,7 @@ namespace Exo9
 
         private void openFrmExo9(MSection section)
         {
-            if (section == null) section = MSections.listSections["CDI1"];
+            if (section == null) section = sections.RestituerSection("CDI1");
 
             if (listFrmExo9.ContainsKey(section.Identifiant))
             {

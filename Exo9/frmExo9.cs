@@ -56,6 +56,7 @@ namespace Exo9
             this.grdStagiaires.Refresh();
             // gestion bouton supprimer
             this.btnSupprimer.Enabled = (this.grdStagiaires.CurrentRow == null ? false: true);
+            this.btnModify.Enabled = (this.grdStagiaires.CurrentRow == null ? false: true);
         }
 
         /// <summary>
@@ -129,8 +130,8 @@ namespace Exo9
                     throw new InvalidCastException("can't convert cell[0], cleStagiaire");
                 }
             }
-
         }
+
         private void modifyStagiaire()
         {
             MStagiaire leStagiaire;

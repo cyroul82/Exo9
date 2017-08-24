@@ -42,3 +42,6 @@ testem.log
 Thumbs.db
 /Exo9/bin/Debug
 /Exo9/obj
+/ClassesMetiers/bin/Debug
+/.vs/Exo9/v14
+/ClassesMetiers/obj/Debug

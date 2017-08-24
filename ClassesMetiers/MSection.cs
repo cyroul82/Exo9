@@ -35,13 +35,12 @@ namespace Exo9
             dt.Columns.Add("Nom", typeof(String));
             dt.Columns.Add("Prénom", typeof(String));
 
-            foreach(KeyValuePair<Int32, MStagiaire> s in listStagiaires)
+            foreach (KeyValuePair<Int32, MStagiaire> s in listStagiaires)
             {
                 DataRow row = dt.NewRow();
                 row["NumOsia"] = s.Key;
                 row["Nom"] = s.Value.Nom;
                 row["Prénom"] = s.Value.Prenom;
-                dt.Rows.Add(row);
             }
 
             return dt;

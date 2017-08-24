@@ -167,6 +167,7 @@ namespace Exo9
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.btnFermer);
             this.Name = "frmVisuStagiaire";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Visualisation / Modification des stagiaires Section DI";
             this.Load += new System.EventHandler(this.frmVisuStagiaire_Load);
             this.Controls.SetChildIndex(this.btnFermer, 0);

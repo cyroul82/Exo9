@@ -134,7 +134,7 @@ namespace Exo9
         private void modifyStagiaire()
         {
             MStagiaire leStagiaire;
-            Int32 laCle;
+            Int32 laCle=0;
             if (Int32.TryParse(this.grdStagiaires.CurrentRow.Cells[0].Value.ToString(), out laCle))
             {
                 // instancier un objet stagiaire pointant vers 

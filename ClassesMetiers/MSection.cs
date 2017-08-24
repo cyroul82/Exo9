@@ -16,7 +16,7 @@ namespace Exo9
         private String libelle;
         private DateTime dateDebut;
         private DateTime dateFin;
-        private SortedDictionary<Int32, MStagiaire> listStagiaires;
+        public SortedDictionary<Int32, MStagiaire> listStagiaires;
         private DataTable dt;
 
         public MSection(String identifiant, String libelle, DateTime dateDebut, DateTime dateFin)
@@ -34,7 +34,7 @@ namespace Exo9
             dt.Columns.Add("NumOsia", typeof(String));
             dt.Columns.Add("Nom", typeof(String));
             dt.Columns.Add("Prénom", typeof(String));
-
+            Console.WriteLine("Dans MSection : " + listStagiaires.Count);
             foreach (KeyValuePair<Int32, MStagiaire> s in listStagiaires)
             {
                 DataRow row = dt.NewRow();

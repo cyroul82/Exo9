@@ -115,8 +115,7 @@ namespace Exo9
 
                 // dans tous les cas, ajouter la référence d'objet MStagiaire dans la collection de sa section
                 laSection.Ajouter(nouveauStagiaire);
-                Console.WriteLine(laSection.Identifiant + " ajout nouveau stagiaire ");
-
+                Console.WriteLine("dans frmAjoutStagiaire, la section : " + laSection.RestituerStagiaire(12345));
                     return true;
 
                 }

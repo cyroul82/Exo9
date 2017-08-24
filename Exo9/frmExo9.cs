@@ -45,7 +45,7 @@ namespace Exo9
         /// </summary>
         private void afficheStagiaires()
         {
-            this.grdStagiaires.DataSource = null;
+            Console.WriteLine("dans affiche stagiaire" + laSection.listStagiaires.Count);
             this.grdStagiaires.DataSource = laSection.ListerStagiaires();
             // déterminer l'origine des données à afficher : 
             // appel de la méthode de la classe MSection 
@@ -87,7 +87,10 @@ namespace Exo9
         /// <param name="e"></param>
         private void grdStagiaires_DoubleClick(object sender, EventArgs e)
         {
-            modifyStagiaire();
+            if (this.grdStagiaires.CurrentRow != null)
+            {
+                modifyStagiaire();
+            }
         }
 
         /// <summary>

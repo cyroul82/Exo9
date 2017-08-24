@@ -36,6 +36,7 @@
             // 
             // cbxSection
             // 
+            this.cbxSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSection.FormattingEnabled = true;
             this.cbxSection.Location = new System.Drawing.Point(72, 70);
             this.cbxSection.Name = "cbxSection";

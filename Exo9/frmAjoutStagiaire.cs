@@ -69,9 +69,10 @@ namespace Exo9
             {
                 MSections sections = MSections.Instance();
                 Int32 numOsia;
+                String identifiantSection;
                 if (Int32.TryParse(txtOSIA.Text, out numOsia))
                 {
-                    if (!sections.isNumOsiaExist(numOsia)) { 
+                    if (!sections.isNumOsiaExist(numOsia, out identifiantSection)) { 
 
                         if (this.rbtDE.Checked) // c'est un DE
                         {

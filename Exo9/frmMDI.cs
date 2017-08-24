@@ -9,6 +9,7 @@ using System.Windows.Forms;
 namespace Exo9
 {
     public delegate void SelectSectionHandler(MSection section);
+    public delegate void SearchHandler(Int32 numOsia, String identifiantSection);
     public partial class frmMDI : Form
     {
         //private int childFormNumber = 0;
@@ -171,6 +172,23 @@ namespace Exo9
             frmSection s = new frmSection();
             s.selectSection += new SelectSectionHandler(this.selectionSelected);
             s.ShowDialog();
+        }
+
+        private void printPreviewToolStripButton_Click(object sender, EventArgs e)
+        {
+            frmSearchStagiaire frmSearch = new frmSearchStagiaire();
+            frmSearch.searchStagiaire += new SearchHandler(this.searchStagiaire);
+            frmSearch.ShowDialog();
+        }
+
+        private void searchStagiaire(Int32 numOsia, String identifiantSection)
+        {
+            MSection section = sections.RestituerSection(identifiantSection);
+            MStagiaire stagiaire = section.RestituerStagiaire(numOsia);
+            frmVisuStagiaire frmVisu = new frmVisuStagiaire(stagiaire);
+            frmVisu.ShowDialog();
+
+            //frmVisuStagiaire frmVisuStagiaire = new frmVisuStagiaire
         }
     }
 }

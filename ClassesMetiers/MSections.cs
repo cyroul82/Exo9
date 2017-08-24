@@ -79,19 +79,32 @@ namespace Exo9
             }
         }
 
-        public Boolean isNumOsiaExist(Int32 numOsia)
+        public Boolean isNumOsiaExist(Int32 numOsia, out String identifiantSection)
         {
             Boolean exist = false;
+            identifiantSection = null;
             foreach(MSection section in listSections.Values)
             {
                 if (section.isNumOsiaExist(numOsia))
                 {
                     exist = true;
+                    identifiantSection = section.Identifiant;
                 }
             }
 
             return exist;
         }
+
+        public MStagiaire getStagiaire(Int32 numOsia)
+        {
+            MStagiaire stagiaire = null;
+            foreach (MSection section in listSections.Values)
+            {
+               
+            }
+            return stagiaire;
+        }
+
 
         public DataTable ListerSections()
         {

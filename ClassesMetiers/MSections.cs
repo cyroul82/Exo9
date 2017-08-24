@@ -79,6 +79,20 @@ namespace Exo9
             }
         }
 
+        public Boolean isNumOsiaExist(Int32 numOsia)
+        {
+            Boolean exist = false;
+            foreach(MSection section in listSections.Values)
+            {
+                if (section.isNumOsiaExist(numOsia))
+                {
+                    exist = true;
+                }
+            }
+
+            return exist;
+        }
+
         public DataTable ListerSections()
         {
             DataTable dt = new DataTable();
@@ -94,7 +108,11 @@ namespace Exo9
             }
 
             return dt;
+        }
 
+        public Int32 getSectionsCount()
+        {
+            return listSections.Count;
         }
 
     }

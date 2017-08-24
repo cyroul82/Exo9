@@ -37,8 +37,6 @@
             this.newStagiaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openSectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OpenCDIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openDLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openStagiaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,32 +168,16 @@
             // 
             // openSectionToolStripMenuItem
             // 
-            this.openSectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.OpenCDIToolStripMenuItem,
-            this.openDLToolStripMenuItem});
             this.openSectionToolStripMenuItem.Name = "openSectionToolStripMenuItem";
-            this.openSectionToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.openSectionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openSectionToolStripMenuItem.Text = "Section";
-            // 
-            // OpenCDIToolStripMenuItem
-            // 
-            this.OpenCDIToolStripMenuItem.Name = "OpenCDIToolStripMenuItem";
-            this.OpenCDIToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
-            this.OpenCDIToolStripMenuItem.Text = "CDI";
-            this.OpenCDIToolStripMenuItem.Click += new System.EventHandler(this.openCDIToolStripMenuItem_Click);
-            // 
-            // openDLToolStripMenuItem
-            // 
-            this.openDLToolStripMenuItem.Enabled = false;
-            this.openDLToolStripMenuItem.Name = "openDLToolStripMenuItem";
-            this.openDLToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
-            this.openDLToolStripMenuItem.Text = "DL";
+            this.openSectionToolStripMenuItem.Click += new System.EventHandler(this.openSectionToolStripMenuItem_Click);
             // 
             // openStagiaireToolStripMenuItem
             // 
             this.openStagiaireToolStripMenuItem.Enabled = false;
             this.openStagiaireToolStripMenuItem.Name = "openStagiaireToolStripMenuItem";
-            this.openStagiaireToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.openStagiaireToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openStagiaireToolStripMenuItem.Text = "Stagiaire";
             // 
             // toolStripSeparator3
@@ -672,8 +654,6 @@
         private System.Windows.Forms.ToolStripMenuItem newSectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newStagiaireToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openSectionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem OpenCDIToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openDLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openStagiaireToolStripMenuItem;
     }
 }

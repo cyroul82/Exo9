@@ -40,18 +40,7 @@ namespace Exo9
 
         private void OpenFile(object sender, EventArgs e)
         {
-            //OpenFileDialog openFileDialog = new OpenFileDialog();
-            //openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            //openFileDialog.Filter = "Fichiers texte (*.txt)|*.txt|Tous les fichiers (*.*)|*.*";
-            //if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            //{
-            //    string FileName = openFileDialog.FileName;
-            //    // TODO : ajoutez le code ici pour ouvrir le fichier.
-            //}
-
-            // afficher le form principal
-            openFrmExo9(null);
-
+            openSection();
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -126,15 +115,12 @@ namespace Exo9
 
         private void openCDIToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFrmExo9(null);
+            //openFrmExo9(null);
         }
 
         private void helpToolStripButton_Click(object sender, EventArgs e)
         {
 
-            frmSection s = new frmSection();
-            s.selectSection += new SelectSectionHandler(this.selectionSelected);
-            s.ShowDialog();
         }
 
         private void selectionSelected(MSection section)
@@ -144,7 +130,6 @@ namespace Exo9
 
         private void openFrmExo9(MSection section)
         {
-            if (section == null) section = sections.RestituerSection("CDI1");
 
             if (listFrmExo9.ContainsKey(section.Identifiant))
             {
@@ -174,6 +159,18 @@ namespace Exo9
         {
             frmPrinc = (frmExo9)sender;
             listFrmExo9.Remove(frmPrinc.getSection().Identifiant);
+        }
+
+        private void openSectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openSection();
+        }
+
+        private void openSection()
+        {
+            frmSection s = new frmSection();
+            s.selectSection += new SelectSectionHandler(this.selectionSelected);
+            s.ShowDialog();
         }
     }
 }

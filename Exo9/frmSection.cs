@@ -19,10 +19,6 @@ namespace Exo9
             InitializeComponent();
             cbxSection.DataSource = sections.ListerSections();
             cbxSection.DisplayMember = "Identifiant";
-            //foreach(KeyValuePair<String, MSection> s in MSections.listSections)
-            //{
-            //    cbxSection.Items.Add(s.Key);
-            //}
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -38,12 +34,6 @@ namespace Exo9
                     selectSection?.Invoke(section);
                     this.DialogResult = DialogResult.OK;
                 }
-                //if (MSections.listSections.ContainsKey(choice))
-                //{
-                //    MSection section = MSections.listSections[choice];
-                //    selectSection?.Invoke(section);
-                //    this.DialogResult = DialogResult.OK;
-                //}
             }
 
         }

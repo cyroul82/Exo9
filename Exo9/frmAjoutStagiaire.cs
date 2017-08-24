@@ -26,7 +26,6 @@ namespace Exo9
         {
             InitializeComponent();
             this.laSection = uneSection;
-            Console.WriteLine(laSection.Identifiant);
         }
 
         /// <summary>
@@ -40,7 +39,6 @@ namespace Exo9
             // controle vraissemblance des données saisies sur le form
             if (this.controle())
             {
-                    
                 //  instancie le bon objet MStagiaire et l'ajoute à la collection de sa section  
                 if (this.instancie())
                     {
@@ -69,51 +67,50 @@ namespace Exo9
 
             try
             {
-                //MSections sections = MSections.Instance();
-                //foreach(KeyValuePair<String, MSection> s in sections.)
-                
-                if (this.rbtDE.Checked) // c'est un DE
+                MSections sections = MSections.Instance();
+                Int32 numOsia;
+                if (Int32.TryParse(txtOSIA.Text, out numOsia))
                 {
-                    // instancier un stagiaire spécialisé DE et lui affecter toutes ses propriétés
-                    Int32 numOsia;
-                    if(Int32.TryParse(txtOSIA.Text, out numOsia))
-                    {
+                    if (!sections.isNumOsiaExist(numOsia)) { 
+
+                        if (this.rbtDE.Checked) // c'est un DE
+                        {
+                        // instancier un stagiaire spécialisé DE et lui affecter toutes ses propriétés
                         nouveauStagiaire = new MStagiaireDE(numOsia, txtNom.Text, txtPrenom.Text, txtAdresse.Text, txtVille.Text, txtCodePostal.Text, false);
+                        }
+                        else // c'est un CIF
+                        {
+                            // déterminer le type de CIF
+                            TypeCifEnum leTypeCIF;
+                            if (this.rbtCDD.Checked)
+                            {
+                                leTypeCIF = TypeCifEnum.CDD;
+                            }
+                            else if (this.rbtCDI.Checked)
+                            {
+                                leTypeCIF = TypeCifEnum.CDI;
+                            }
+                            else
+                            {
+                                leTypeCIF = TypeCifEnum.TT;
+                            }
+
+                            // instancier un stagiaire spécialisé CIF et lui affecter toutes ses propriétés
+                            nouveauStagiaire = new MStagiaireCIF(numOsia, txtNom.Text, txtPrenom.Text, txtAdresse.Text, txtVille.Text, txtCodePostal.Text, txtFongecif.Text, leTypeCIF);
+
+                        }
                     }
                     else
                     {
-                        throw new Exception("The Osia Number is incorrect, type of Int32");
+                        throw new Exception("This Osia Number already exists");
                     }
                 }
-                else // c'est un CIF
+                else
                 {
-                    // déterminer le type de CIF
-                    TypeCifEnum leTypeCIF;
-                    if (this.rbtCDD.Checked)
-                    {
-                        leTypeCIF = TypeCifEnum.CDD;
-                    }
-                    else if (this.rbtCDI.Checked)
-                    {
-                        leTypeCIF = TypeCifEnum.CDI;
-                    }
-                    else
-                    {
-                        leTypeCIF = TypeCifEnum.TT;
-                    }
-
-                    // instancier un stagiaire spécialisé CIF et lui affecter toutes ses propriétés
-                    Int32 numOsia;
-                    if (Int32.TryParse(txtOSIA.Text, out numOsia))
-                    {
-                        nouveauStagiaire = new MStagiaireCIF(numOsia, txtNom.Text, txtPrenom.Text, txtAdresse.Text, txtVille.Text, txtCodePostal.Text, txtFongecif.Text, leTypeCIF);
-                    }
-                    else
-                    {
-                        throw new Exception("The Osia Number is incorrect, type of Int32");
-                    }
-
+                    throw new Exception("The Osia Number is incorrect, type of Int32");
                 }
+
+                
 
                 // dans tous les cas, ajouter la référence d'objet MStagiaire dans la collection de sa section
                 laSection.Ajouter(nouveauStagiaire);

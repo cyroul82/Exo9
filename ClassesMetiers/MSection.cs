@@ -146,6 +146,11 @@ namespace Exo9
                 dateFin = value;
             }
         }
+
+        public Boolean isNumOsiaExist(Int32 numOsia)
+        {
+            return listStagiaires.ContainsKey(numOsia);
+        }
         
     }
 }

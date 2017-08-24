@@ -45,13 +45,12 @@ namespace Exo9
         /// </summary>
         private void afficheStagiaires()
         {
-            Console.WriteLine("dans affiche stagiaire" + laSection.listStagiaires.Count);
             this.grdStagiaires.DataSource = laSection.ListerStagiaires();
             // déterminer l'origine des données à afficher : 
             // appel de la méthode de la classe MSection 
             // qui alimente et retourne une datatable
             // à partir de sa collection de stagiaires
-          
+
             // refraîchir l'affichage
             this.grdStagiaires.Refresh();
             // gestion bouton supprimer

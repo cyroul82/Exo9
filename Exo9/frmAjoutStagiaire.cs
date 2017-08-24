@@ -69,6 +69,8 @@ namespace Exo9
 
             try
             {
+                //MSections sections = MSections.Instance();
+                //foreach(KeyValuePair<String, MSection> s in sections.)
                 
                 if (this.rbtDE.Checked) // c'est un DE
                 {
@@ -115,7 +117,6 @@ namespace Exo9
 
                 // dans tous les cas, ajouter la référence d'objet MStagiaire dans la collection de sa section
                 laSection.Ajouter(nouveauStagiaire);
-                Console.WriteLine("dans frmAjoutStagiaire, la section : " + laSection.RestituerStagiaire(12345));
                     return true;
 
                 }

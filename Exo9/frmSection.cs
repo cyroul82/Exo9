@@ -17,23 +17,33 @@ namespace Exo9
         public frmSection()
         {
             InitializeComponent();
-            foreach(KeyValuePair<String, MSection> s in MSections.listSections)
-            {
-                cbxSection.Items.Add(s.Key);
-            }
+            cbxSection.DataSource = sections.ListerSections();
+            cbxSection.DisplayMember = "Identifiant";
+            //foreach(KeyValuePair<String, MSection> s in MSections.listSections)
+            //{
+            //    cbxSection.Items.Add(s.Key);
+            //}
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             if (cbxSection.SelectedItem != null && !String.IsNullOrEmpty(cbxSection.SelectedItem.ToString()))
             {
-                String choice = cbxSection.SelectedItem.ToString();
-                if (MSections.listSections.ContainsKey(choice))
+                DataRowView choice = cbxSection.SelectedItem as DataRowView;
+                String value = choice.Row["Identifiant"] as String;
+                MSection section = sections.RestituerSection(value);
+
+                if(section != null)
                 {
-                    MSection section = MSections.listSections[choice];
                     selectSection?.Invoke(section);
                     this.DialogResult = DialogResult.OK;
                 }
+                //if (MSections.listSections.ContainsKey(choice))
+                //{
+                //    MSection section = MSections.listSections[choice];
+                //    selectSection?.Invoke(section);
+                //    this.DialogResult = DialogResult.OK;
+                //}
             }
 
         }

@@ -75,7 +75,7 @@ namespace Exo9
             }
             else
             {
-                throw new Exception("Can't find this identifiant, this Stagiaire does not exist !");
+                return null;
             }
         }
 

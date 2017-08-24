@@ -41,6 +41,7 @@ namespace Exo9
                 row["NumOsia"] = s.Key;
                 row["Nom"] = s.Value.Nom;
                 row["Prénom"] = s.Value.Prenom;
+                dt.Rows.Add(row);
             }
 
             return dt;

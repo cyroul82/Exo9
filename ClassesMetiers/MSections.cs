@@ -14,12 +14,12 @@ namespace Exo9
         // Declare une reference MSections static
         private static MSections instance = null;
 
-        private SortedDictionary<String, MSection> listSections = new SortedDictionary<String, MSection>();
+        private SortedDictionary<String, MSection> listSections; 
 
         // Creer un constructor privé
         private MSections()
         {
-
+            listSections = new SortedDictionary<String, MSection>();
         }
 
         // Créer une méthode static retournant la reference de MSection
